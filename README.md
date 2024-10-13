@@ -226,6 +226,11 @@ $$ τ = J_{e(\text{Linear})}^{T}w \\ $$
 
 โดยที่
 
+$$w = \begin{bmatrix}
+\text{force}_{x} &, \text{force}_{y} &, \text{force}_{z} &, text{moment}_{x} &, \text{moment}_{y} &, \text{moment}_{z}
+\end{bmatrix} \\ $$
+
+
 $$ 
 w = \begin{bmatrix}
 \text{force}_{x} &, \text{force}_{y} &, \text{force}_{z} &, text{moment}_{x} &, \text{moment}_{y} &, \text{moment}_{z}
