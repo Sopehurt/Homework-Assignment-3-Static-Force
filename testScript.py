@@ -37,16 +37,16 @@ robot = rtb.DHRobot(
     
     name = "RRR_Robot"
 )
+jacobian_robot_toolbox_rounded = np.round(robot.jacobe(q), 6)
+jacobian_my_equation_rounded = np.round(endEffectorJacobianHW3(q)[1], 6)
 
-robot.plot(q=q)
-input(...)
-# print(robot)
-# print("1) Test = ")
-# print("jacobian from robotics toolbox")
-# print(robot.jacobe(q))
-# print("jacobian from my equation")
-# print(endEffectorJacobianHW3(q)[1])
-# print("-----------------------------------------------")
+# with np.printoptions(precision=6, suppress=True, floatmode='fixed'):
+#     print("1) Test = ")
+#     print("jacobian from robotics toolbox")
+#     print(jacobian_robot_toolbox_rounded)
+#     print("jacobian from my equation")
+#     print(jacobian_my_equation_rounded)
+#     print("-----------------------------------------------")
 #==============================================================================================================#
 
 #===========================================<ตรวจคำตอบข้อ 2>====================================================#
@@ -56,10 +56,19 @@ q2 = float(random.uniform(-pi, pi))
 q3 = float(random.uniform(-pi, pi))
 q = [q1, q2, q3]
 
+
+det_J = np.linalg.det(robot.jacobe(q)[:3 , :]) # find det of Jacobian end-effector from RTB at only 3x matrix
+if det_J < 0.001:
+    singularity = 1 # that q is singularity
+else:
+    singularity = 0 # that q isn't singularity
+
 # print("2) Test = ")
 # print("random q")
 # print(q)
-# print("return singularity state")
+# print("check singularity state from RTB")
+# print(singularity)
+# print("return singularity state from my function")
 # print(checkSingularityHW3(q))
 # print("-----------------------------------------------")
 #==============================================================================================================#
@@ -67,15 +76,16 @@ q = [q1, q2, q3]
 #===========================================<ตรวจคำตอบข้อ 3>====================================================#
 #code here
 J_e = robot.jacobe(q)
-effort_robotics_toolbox = robot.pay(w , q , J_e)
+effort_robotics_toolbox = np.round(robot.pay(w , q , J_e), 6 )
+effort_my_equation = np.round(computeEffortHW3(q, w) , 6)
 
-effort_my_equation = computeEffortHW3(q, w)
-
-# print("3) Test = ")
-# print("Tau form robotics_toolbox")
-# print(effort_robotics_toolbox) # force from robot
-# print("Tau form my equation")
-# print(effort_my_equation) # force from external force
-# print("effort_robotics_toolbox - effort_my_equation = 0" )
-# print("-----------------------------------------------")
+with np.printoptions(precision=6, suppress=True, floatmode='fixed'):
+    print("3) Test = ")
+    print("Tau form robotics_toolbox")
+    print(effort_robotics_toolbox) # force from robot
+    print("Tau form my equation")
+    print(effort_my_equation) # force from external force
+    print("effort_robotics_toolbox + effort_my_equation = " )
+    print(effort_robotics_toolbox + effort_my_equation)
+    print("-----------------------------------------------")
 #==============================================================================================================#

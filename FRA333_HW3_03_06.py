@@ -58,9 +58,7 @@ def checkSingularityHW3(q:list[float])->bool:
         singularity = 1 # that q is singularity
     else:
         singularity = 0 # that q isn't singularity
-
-    
-    
+        
     return singularity # singularity state
     
 #==============================================================================================================#
@@ -77,8 +75,8 @@ def computeEffortHW3(q:list[float], w:list[float])->list[float]:
     J_e = (endEffectorJacobianHW3(q))[1] # use only the J_e (end-effector Jacobian)
     J_Trans = np.transpose(J_e) # Transpose jacobian matrix
     
-    effort = J_Trans @ w # J_Transpose cross to wrench
-    return effort
+    tau = J_Trans @ w # J_Transpose cross to wrench
+    return tau
 #==============================================================================================================#
 
 # print(endEffectorJacobianHW3(q)[1])
