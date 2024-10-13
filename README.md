@@ -243,20 +243,25 @@ def computeEffortHW3(q:list[float], w:list[float])->list[float]:
 ```
 
 ### ตรวจคำตอบข้อที่ 3
-สามารถตรวจคำตอบของ τ ได้จากการหา τ โดยใช้คำสั่งจาก Robotics toolbox ดังนี้
+สามารถตรวจคำตอบของ τ โดยทำการสุ่มค่า w โดยกำหนดให้แรงมีค่าตั้งแต่ 0-10 แลพทำการหา τ โดยใช้คำสั่งจาก Robotics toolbox และเปรัยบเทียบกับ τ ที่ได้จาก computeEffortHW3 ดังนี้
 * (ทำการปัดทษนิยมให้มีแค่ 6 ตำแหน่งเพื่อให้ง่ายต่อการตรวจสอบเนื่องจากทั้ง 2 วิธีได้ค่าที่ความบละเอียดต่างกัน)
 ```python
+w = [random.uniform(0, 10) for _ in range(6)]
+
 J_e = robot.jacobe(q)
-effort_robotics_toolbox = np.round(robot.pay(w , q , J_e), 6 )
-effort_my_equation = np.round(computeEffortHW3(q, w) , 6)
+effort_robotics_toolbox = np.round(robot.pay(w, q, J_e), 6)
+effort_my_equation = np.round(computeEffortHW3(q, w), 6)
 
 with np.printoptions(precision=6, suppress=True, floatmode='fixed'):
+
     print("3) Test = ")
+    print("random w")
+    print(w)
     print("Tau form robotics_toolbox")
-    print(effort_robotics_toolbox) # force from robot
+    print(effort_robotics_toolbox)  # force from robot
     print("Tau form my equation")
-    print(effort_my_equation) # force from external force
-    print("effort_robotics_toolbox + effort_my_equation = " )
+    print(effort_my_equation)  # force from external force
+    print("effort_robotics_toolbox + effort_my_equation = ")
     print(effort_robotics_toolbox + effort_my_equation)
     print("-----------------------------------------------")
 ```
@@ -264,10 +269,12 @@ with np.printoptions(precision=6, suppress=True, floatmode='fixed'):
 ผลลัพธ์ที่ได้
 ```text
 3) Test =
+random w
+[5.859369746768605, 5.436879593433474, 2.673125330646168, 8.461259734146893, 6.823918388490622, 3.488454961377825]
 Tau form robotics_toolbox
-[-0.720498  0.515951  0.093000]
+[-7.837535 -7.276078 -5.633240]
 Tau form my equation
-[ 0.720498 -0.515951 -0.093000]
+[7.837535 7.276078 5.633240]
 effort_robotics_toolbox + effort_my_equation =
 [0.000000 0.000000 0.000000]
 -----------------------------------------------
