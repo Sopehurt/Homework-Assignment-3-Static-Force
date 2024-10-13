@@ -145,7 +145,7 @@ jacobian from my equation
 จะทำการเขียน fuction ชื่อ checkSingularityHW3 ที่จะรับค่า q เข้าไปและแสดงผลเป็น 1 เมื่อท่านั้นเกิด singularity กับ 0 เมื่อท่านั้นไม่เกิด singularity
 โดยมีการคำนวณหา det ของ Jacobian จาก end-effector ในพจน์ Linear ดังสมการ
 
-$$ singularity = 1 : detJ_{e_{(6x3)}(Linear)} < 0.001\\$$
+$$ singularity = 1 : detJ_{e_{(6x3)}(Linear)} < 0.001\\ $$
 
 ที่ได้จาก funtion endEffectorJacobianHW3(q) ดังนี้
 
@@ -166,7 +166,7 @@ def checkSingularityHW3(q:list[float])->bool:
 ### ตรวจคำตอบข้อที่ 2
 จะตรวจคำตอบจากการสุ่มตำแหน่งเชิงมุม q ของหุ่นยนต์เพื่อนำมาเข้าสู่ fuction เพื่อเปรียบเทียบระหว่างการตรวจสอบด้วย Jacobian ที่ได้จาก Robotics toolbox กับ จาก fuction endEffectorJacobianHW3 และนำมาหา det ของ Jacobian ในพจน์ Linear ว่าได้ singularity ที่ตรงกันรึปล่าวตามสมการ
 
-$$ singularity = 1 : detJ_{e_{(6x3)}(Linear)} < 0.001\\$$
+$$ singularity = 1 : detJ_{e_{(6x3)}(Linear)} < 0.001\\ $$
 
 
 ```python
@@ -222,7 +222,7 @@ return singularity state from my function
 
 ทำการสร้าง function computeEffortHW3(q,w) ที่จะรับค่าตำแหน่งเชิงมุม q ของหุ่นและแรงกระทำภายนอกในทุกด้านทุกมุม w และคำนวณออกมาเป็น τ
 โดยคำนวณจากสมการดังนี้
-$$ τ = J_{e(\text{Linear})}^{T}w \\$$
+$$ τ = J_{e(\text{Linear})}^{T}w \\ $$
 
 โดยที่
 
@@ -230,7 +230,7 @@ $$
 w = \begin{bmatrix}
 \text{force}_{x} &, \text{force}_{y} &, \text{force}_{z} &, text{moment}_{x} &, \text{moment}_{y} &, \text{moment}_{z}
 \end{bmatrix}
-\\$$
+\\ $$
 
 สามารถเขียนใน function ได้ดังนี้
 ```python
