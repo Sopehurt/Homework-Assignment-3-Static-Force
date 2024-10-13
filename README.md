@@ -71,7 +71,7 @@ name = "RRR_Robot"
 $$J_{0_{(6x3)}} = \begin{bmatrix}
 J_{linear_{(3x3)}} \\
 J_{angular_{(3x3)}}
-\end{bmatrix} \\$$
+\end{bmatrix} \\ $$
 
 โดยที่
 
@@ -81,7 +81,7 @@ $$J_{angular,i} = \hat{Z_i} \\ $$
 Jacobian จาก Base fram แต่เราต้องการ Jacobian จาก end-effector ดังนั้นสามารถหาได้นี้
 
 $$J_{e_{(6x3)}} = 
-J_{0_{(6x3)}}R_e \\$$
+J_{0_{(6x3)}}R_e \\ $$
 
 ```python
 def endEffectorJacobianHW3(q:list[float])->list[float]:
