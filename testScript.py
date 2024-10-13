@@ -37,12 +37,16 @@ robot = rtb.DHRobot(
     
     name = "RRR_Robot"
 )
-print("1) Test = ")
-print("jacobian from robotics toolbox")
-print(robot.jacobe(q))
-print("jacobian from my equation")
-print(endEffectorJacobianHW3(q)[1])
-print("-----------------------------------------------")
+
+robot.plot(q=q)
+input(...)
+# print(robot)
+# print("1) Test = ")
+# print("jacobian from robotics toolbox")
+# print(robot.jacobe(q))
+# print("jacobian from my equation")
+# print(endEffectorJacobianHW3(q)[1])
+# print("-----------------------------------------------")
 #==============================================================================================================#
 
 #===========================================<ตรวจคำตอบข้อ 2>====================================================#
@@ -52,12 +56,12 @@ q2 = float(random.uniform(-pi, pi))
 q3 = float(random.uniform(-pi, pi))
 q = [q1, q2, q3]
 
-print("2) Test = ")
-print("random q")
-print(q)
-print("return singularity state")
-print(checkSingularityHW3(q))
-print("-----------------------------------------------")
+# print("2) Test = ")
+# print("random q")
+# print(q)
+# print("return singularity state")
+# print(checkSingularityHW3(q))
+# print("-----------------------------------------------")
 #==============================================================================================================#
 
 #===========================================<ตรวจคำตอบข้อ 3>====================================================#
@@ -67,11 +71,11 @@ effort_robotics_toolbox = robot.pay(w , q , J_e)
 
 effort_my_equation = computeEffortHW3(q, w)
 
-print("3) Test = ")
-print("Tau form robotics_toolbox")
-print(effort_robotics_toolbox) # force from robot
-print("Tau form my equation")
-print(effort_my_equation) # force from external force
-print("effort_robotics_toolbox - effort_my_equation = 0" )
-print("-----------------------------------------------")
+# print("3) Test = ")
+# print("Tau form robotics_toolbox")
+# print(effort_robotics_toolbox) # force from robot
+# print("Tau form my equation")
+# print(effort_my_equation) # force from external force
+# print("effort_robotics_toolbox - effort_my_equation = 0" )
+# print("-----------------------------------------------")
 #==============================================================================================================#
