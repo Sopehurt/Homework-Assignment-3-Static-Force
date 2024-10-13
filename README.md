@@ -223,6 +223,7 @@ return singularity state from my function
 ทำการสร้าง function computeEffortHW3(q,w) ที่จะรับค่าตำแหน่งเชิงมุม q ของหุ่นและแรงกระทำภายนอกในทุกด้านทุกมุม w และคำนวณออกมาเป็น τ
 โดยคำนวณจากสมการดังนี้
 $$ τ = J_{e(\text{Linear})}^{T}w \\$$
+
 โดยที่
 
 $$ 
