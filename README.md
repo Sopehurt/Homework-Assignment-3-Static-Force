@@ -222,20 +222,14 @@ return singularity state from my function
 
 ทำการสร้าง function computeEffortHW3(q,w) ที่จะรับค่าตำแหน่งเชิงมุม q ของหุ่นและแรงกระทำภายนอกในทุกด้านทุกมุม w และคำนวณออกมาเป็น τ
 โดยคำนวณจากสมการดังนี้
-$$ τ = J_{e(\text{Linear})}^{T}w \\ $$
+
+$$ τ = J_{e(\text{Linear})}^{T}w\\ $$
 
 โดยที่
 
-$$w = \begin{bmatrix}
-\text{force}_{x} &, \text{force}_{y} &, \text{force}_{z} &, text{moment}_{x} &, \text{moment}_{y} &, \text{moment}_{z}
-\end{bmatrix} \\ $$
-
-
-$$ 
-w = \begin{bmatrix}
-\text{force}_{x} &, \text{force}_{y} &, \text{force}_{z} &, text{moment}_{x} &, \text{moment}_{y} &, \text{moment}_{z}
-\end{bmatrix}
-\\ $$
+$$
+w = \left[ \text{force}_x, \ \text{force}_y, \ \text{force}_z, \ \text{textmoment}_x, \ \text{moment}_y, \ \text{moment}_z \right]
+$$
 
 สามารถเขียนใน function ได้ดังนี้
 ```python
